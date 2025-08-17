@@ -15,6 +15,7 @@ struct CardView: View {
     var body: some View {
         ZStack {
             CircleView()
+            MotionAnimationView()
             ImageView()
         }
     }
