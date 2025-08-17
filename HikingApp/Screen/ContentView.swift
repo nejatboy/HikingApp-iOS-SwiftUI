@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var imageNumber: Int = 1
+    @State private var randomNumber: Int = 1
+    @State private var isShowingSheet: Bool = false
+    
+    
     var body: some View {
         ZStack {
             CustomBackgroundView()
@@ -49,9 +55,12 @@ struct ContentView: View {
     
     private var headerButton: some View {
         return Button {
+            isShowingSheet.toggle()
             
         } label: {
             CustomButtonView()
+        } .sheet(isPresented: $isShowingSheet) {
+            SettingsView()
         }
     }
     
