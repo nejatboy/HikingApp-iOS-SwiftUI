@@ -23,17 +23,20 @@ private struct Header: View {
     
     var body: some View {
         HStack {
+            Spacer()
             firstImage
             title
             secondImage
+            Spacer()
         }
+        .foregroundStyle(foreground)
     }
     
     
     private var firstImage: some View {
         let font: Font = .system(size: 80, weight: .black)
         
-        return Image(systemName: "latural.trailing")
+        return Image(systemName: "laurel.leading")
             .font(font)
     }
     
@@ -49,8 +52,19 @@ private struct Header: View {
     private var secondImage: some View {
         let font: Font = .system(size: 80, weight: .black)
         
-        return Image(systemName: "latural.leading")
+        return Image(systemName: "laurel.trailing")
             .font(font)
+    }
+    
+    
+    private var foreground: some ShapeStyle {
+        let colors: [Color] = [.colorGreenLight, .colorGreenMedium, .colorGreenDark]
+        
+        return LinearGradient(
+            colors: colors,
+            startPoint: .top,
+            endPoint: .bottom
+        )
     }
 }
 
