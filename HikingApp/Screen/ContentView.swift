@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var imageNumber: Int = 1
-    @State private var randomNumber: Int = 1
     @State private var isShowingSheet: Bool = false
     
     
@@ -61,6 +59,8 @@ struct ContentView: View {
             CustomButtonView()
         } .sheet(isPresented: $isShowingSheet) {
             SettingsView()
+                .presentationDragIndicator(.visible)
+                .presentationDetents([.medium, .large])
         }
     }
     
